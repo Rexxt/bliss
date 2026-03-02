@@ -1,3 +1,7 @@
+PS by Icycoide:
+
+This project belongs rightfully to [Rexxt](https://github.com/Rexxt). This project is not associated with Icycoide, or Raíz1.
+
 # Bliss
 edit code and text - blissfully
 
