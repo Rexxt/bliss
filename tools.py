@@ -2,6 +2,11 @@ def write_to_screen(screen, font, text, pos, flags):
     img = font.render(text, *flags)
     screen.blit(img, pos)
 
+def lerp(a, b, p):
+    return a + (b-a)*p
+def unlerp(a, b, p):
+    return (p-a)/(b-a)
+
 class Point(tuple):
     def __add__(self, other):
         if isinstance(other, tuple):

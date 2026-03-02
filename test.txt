@@ -1,0 +1,6 @@
+# i have successfully written this working python code with bliss
+def main():
+    print('poopoo')
+
+if __name__ == '__main__':
+    main()
