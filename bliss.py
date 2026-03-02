@@ -95,9 +95,9 @@ class App:
                     args = args[0]
                 elif len(args) == 0:
                     args = None
-                command = command[0]
-                self.tab_palette = None
                 try:
+                    self.tab_palette = None
+                    command = command[0]
                     self.open_tab(command, args)
                 except KeyError as e:
                     self.post_toast(f"No tab named '{command}'.", 'error')
@@ -117,7 +117,8 @@ class App:
 
     def open_tab(self, name, data=None):
         self.open_tabs.insert(self.current_tab + 1, self.tabs[name].Tab(self, data))
-    
+        self.current_tab += 1
+
     def close_tab(self, id):
         self.open_tabs.pop(id)
         if self.current_tab >= len(self.open_tabs):
@@ -201,7 +202,7 @@ class App:
                     offset = 0
                 else:
                     offset = ((time.time() - self.toasts[i][2] - 2.5)*2)**2
-                pos = tools.Point((0-offset*(tw+15), h-self.interface_font.get_height()*(1+inv_i)))
+                pos = tools.Point((0-offset*(tw+15), h-self.interface_font.get_height()*(2.5+inv_i)))
                 pygame.draw.rect(self.screen, self.ui_config['toasts']['base_background'], pygame.Rect(pos[0], pos[1], tw + 15, self.interface_font.get_height()))
                 pygame.draw.rect(self.screen, self.ui_config['toasts'][self.toasts[i][1]][0], pygame.Rect(pos[0], pos[1], 5, self.interface_font.get_height()))
                 tools.write_to_screen(self.screen, self.interface_font, self.toasts[i][0], pos + tools.Point((10, 0)), (True, self.ui_config['toasts'][self.toasts[i][1]][1]))

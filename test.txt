@@ -4,3 +4,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# small but very obvious and important issue:
+# the cursor is always smooth
+# and some users don't deal with animation very well
+# so i want to make it a setting

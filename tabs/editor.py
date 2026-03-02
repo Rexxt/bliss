@@ -14,14 +14,14 @@ class Tab:
 
         self.file = data
 
-        if self.file is not None and os.path.isfile(self.file):
+        if self.file is not None:
+            if not os.path.isfile(self.file):
+                with open(self.file, 'w', encoding='utf-8') as f:
+                    f.write('')
             with open(self.file, 'r', encoding='utf-8') as f:
                 self.original_file = f.read()
                 self.editor = FileEditor(self.original_file)
                 self.visual_cursor = self.editor.cursor.copy()
-        else:
-            self.editor = None
-            self.visual_cursor = None
         self.scroll = [0,0]
         self.visual_scroll = self.scroll.copy()
         
