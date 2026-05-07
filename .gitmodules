@@ -1,0 +1,3 @@
+[submodule "tifer"]
+	path = tifer
+	url = https://github.com/Rexxt/tifer.git
